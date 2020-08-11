@@ -19,6 +19,8 @@ if [ ${#1} != 0 ] && [ ${#1} = $(echo $1 | sed -e 's/\(.\)/\1\n/g' | xargs -I % 
     fi
     idx=$((idx+1))
   done
+  exit 0
 else
-  echo Error: not all characters found in image list
+  echo "Error: not all characters found in image list (${#1} characters input)"
+  exit 10
 fi
